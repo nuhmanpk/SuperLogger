@@ -1,0 +1,12 @@
+[
+    {
+        "key": "alt+ctrl+p", // Keybinding for Windows/Linux
+        "command": "superlogger.triggerFunction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+alt+p", // Keybinding for macOS
+        "command": "superlogger.triggerFunction",
+        "when": "editorTextFocus"
+    }
+]
