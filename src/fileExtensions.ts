@@ -1,163 +1,168 @@
 import { getRandomEmoji, getRandomJoke } from './utlis';
 
+
 export const fileExtensions=(filePath : string , fileExtension : string,selectedText : string)=> {
+    const defaultPrintStatement = `"${getRandomEmoji()} ~ ${filePath} -> ${selectedText}: ",  ${selectedText ? selectedText : `"${getRandomJoke()}"`}`;
     const language : any = 
         {
             'js': {
             language: 'JavaScript',
-            defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+            defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'ts': {
                 language: 'TypeScript',
-                defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'tsx': {
                 language: 'TypeScript',
-                defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'jsx': {
                 language: 'TypeScript',
-                defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'vue': {
                 language: 'TypeScript',
-                defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'svelte': {
                 language: 'TypeScript',
-                defaultSyntax: `console.log("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `console.log(${defaultPrintStatement})`,
             },
             'py': {
                 language: 'Python',
-                defaultSyntax: `print("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `print(${defaultPrintStatement})`,
             },
             'java': {
                 language: 'Java',
-                defaultSyntax: `System.out.println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}" + (${selectedText ? selectedText : `"${getRandomJoke()}"`}));`,
+                defaultSyntax: `System.out.println(${defaultPrintStatement});`,
             },
             'c': {
                 language: 'C',
-                defaultSyntax: `printf("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}n");`,
+                defaultSyntax: `printf(${defaultPrintStatement});`,
             },
             'cpp': {
                 language: 'C++',
-                defaultSyntax: `std::cout << "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}" << (${selectedText ? selectedText : `"${getRandomJoke()}"`}) << std::endl;`,
+                defaultSyntax: `std::cout << ${defaultPrintStatement}) << std::endl;`,
             },
             'csharp': {
                 language: 'C#',
-                defaultSyntax: `Console.WriteLine("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}: " + (${selectedText ? selectedText : `"${getRandomJoke()}"`}));`,
+                defaultSyntax: `Console.WriteLine(${defaultPrintStatement});`,
             },
             'ruby': {
                 language: 'Ruby',
-                defaultSyntax: `puts "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}" + (${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `puts ${defaultPrintStatement});`,
             },
             'php': {
                 language: 'PHP',
-                defaultSyntax: `echo "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}" . (${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `echo ${defaultPrintStatement});`,
             },
             'go': {
                 language: 'Go',
-                defaultSyntax: `fmt.Println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `fmt.Println(${defaultPrintStatement})`,
             },
             'swift': {
                 language: 'Swift',
-                defaultSyntax: `print("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `print(${defaultPrintStatement})`,
             },
             'kotlin': {
                 language: 'Kotlin',
-                defaultSyntax: `println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `println(${defaultPrintStatement})`,
             },
             'rust': {
                 language: 'Rust',
-                defaultSyntax: `println!("{} ~ ${filePath} ~ ${selectedText}: {}", "${getRandomEmoji()}", ${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `println!(${defaultPrintStatement});`,
             },
             'perl': {
                 language: 'Perl',
-                defaultSyntax: `print "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}" . (${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `print ${defaultPrintStatement});`,
             },
             'r': {
                 language: 'R',
-                defaultSyntax: `cat("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `cat(${defaultPrintStatement})`,
             },
             'dart': {
                 language: 'Dart',
-                defaultSyntax: `print("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText}", ${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `print(${defaultPrintStatement});`,
             },
             'scala': {
                 language: 'Scala',
-                defaultSyntax: `println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `println(${defaultPrintStatement});`,
             },
             'lua': {
                 language: 'Lua',
-                defaultSyntax: `print("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `print(${defaultPrintStatement})`,
             },
             'perl6': {
                 language: 'Perl 6',
-                defaultSyntax: `say "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`};`,
+                defaultSyntax: `say ${defaultPrintStatement};`,
             },
             'haskell': {
                 language: 'Haskell',
-                defaultSyntax: `putStrLn "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `putStrLn ${defaultPrintStatement})`,
             },
             'racket': {
                 language: 'Racket',
-                defaultSyntax: `(displayln (format "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})))`,
+                defaultSyntax: `(displayln (format ${defaultPrintStatement}))`,
             },
             'elixir': {
                 language: 'Elixir',
-                defaultSyntax: `IO.puts("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `IO.puts(${defaultPrintStatement})`,
             },
             'julia': {
                 language: 'Julia',
-                defaultSyntax: `println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `println(${defaultPrintStatement})`,
             },
             'groovy': {
                 language: 'Groovy',
-                defaultSyntax: `println("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `println(${defaultPrintStatement})`,
             },
             'cobol': {
                 language: 'COBOL',
-                defaultSyntax: `DISPLAY "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`}"`,
+                defaultSyntax: `DISPLAY ${defaultPrintStatement}"`,
             },
             'fortran': {
                 language: 'Fortran',
-                defaultSyntax: `WRITE(*,*) "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`}"`,
+                defaultSyntax: `WRITE(*,*) ${defaultPrintStatement}"`,
             },
             'vhdl': {
                 language: 'VHDL',
-                defaultSyntax: `report "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `report ${defaultPrintStatement})`,
             },
             'verilog': {
                 language: 'Verilog',
-                defaultSyntax: `$display("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `$display(${defaultPrintStatement})`,
             },
             'pascal': {
                 language: 'Pascal',
-                defaultSyntax: `WriteLn("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`});`,
+                defaultSyntax: `WriteLn(${defaultPrintStatement});`,
             },
             'ada': {
                 language: 'Ada',
-                defaultSyntax: `Put_Line("${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`}));`,
+                defaultSyntax: `Put_Line(${defaultPrintStatement});`,
             },
             'sql': {
                 language: 'SQL',
-                defaultSyntax: `PRINT "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`}));`,
+                defaultSyntax: `PRINT ${defaultPrintStatement};`,
             },
             'lisp': {
                 language: 'Lisp',
-                defaultSyntax: `(format t "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})))`,
+                defaultSyntax: `(format t ${defaultPrintStatement})`,
             },
             'scheme': {
                 language: 'Scheme',
-                defaultSyntax: `(display (format "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})))`,
+                defaultSyntax: `(display (format ${defaultPrintStatement}))`,
             },
             'powershell': {
                 language: 'PowerShell',
-                defaultSyntax: `Write-Host "${getRandomEmoji()} ~ ${filePath} ~ ${selectedText ? selectedText : `"${getRandomJoke()}"`})`,
+                defaultSyntax: `Write-Host ${defaultPrintStatement})`,
             }
     };
 
-    return language[fileExtension].defaultSyntax;
+    try {
+        return language[fileExtension].defaultSyntax;
+    } catch (error) {
+        console.log(error);
+    }
 
 };
-

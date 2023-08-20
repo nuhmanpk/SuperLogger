@@ -17,7 +17,7 @@ export function getRandomEmoji(): string {
 }
 
 // Function to trim the file and include line number , return the file language
-export function formatFile(filePath: string, lineNumber: number, selectedText: string): string {
+export function formatFile(filePath: string, lineNumber: number, selectedText: string): any {
     const parts = filePath.split(/[\\/]/);
     const fileName = parts[parts.length - 1];
     const fileExtension = fileName.split('.').pop();
@@ -25,6 +25,9 @@ export function formatFile(filePath: string, lineNumber: number, selectedText: s
     if (fileExtension) {
         const filePathString = `${fileName}:${lineNumber}`;
         const printStatement = fileExtensions(filePathString, fileExtension, selectedText);
+        if(!printStatement){
+            return null;
+        }
         return printStatement;
     } else {
         // Handle the case where there is no file extension (e.g., for files without extensions)
@@ -33,34 +36,32 @@ export function formatFile(filePath: string, lineNumber: number, selectedText: s
 }
 
 export function calculateIndentation(editor: vscode.TextEditor, lineNumber: number): string {
-    if (lineNumber <= 0) {
-        // If it's the first line or a negative line number, use no indentation
-        return '';
-    }
-
-    const document = editor.document;
-    const lineText = document.lineAt(lineNumber).text;
-
-    // Find the indentation of the previous non-empty line
-    let previousIndentation = '';
-    let i = lineNumber - 1;
-    while (i >= 0) {
-        const prevLineText = document.lineAt(i).text;
-        if (prevLineText.trim() !== '') {
-            previousIndentation = prevLineText.match(/^\s*/)?.[0] || '';
-            break;
+    try {
+        if (lineNumber < 0) {
+            // If it's the first line or a negative line number, use no indentation
+            return '';
         }
-        i--;
+    
+        const document = editor.document;
+        const lineText = document.lineAt(lineNumber).text;
+    
+        // Find the indentation of the line below
+        const lineBelowText = document.lineAt(lineNumber - 1).text;
+        const belowIndentation = lineBelowText.match(/^\s*/)?.[0] || '';
+    
+        // If the current line ends with a colon or an opening brace, add extra indentation
+        if (lineText.trim().endsWith(':') || lineText.trim().endsWith('{')) {
+            return belowIndentation + '    '; // Adjust the number of spaces as needed
+        }
+    
+        // Use the same indentation as the line below
+        return belowIndentation;
+    } catch (error) {
+        console.log(error);
+        return '\n';
     }
-
-    // If the current line ends with a colon or an opening brace, add extra indentation
-    if (lineText.trim().endsWith(':') || lineText.trim().endsWith('{')) {
-        return previousIndentation + '    '; // Adjust the number of spaces as needed
-    }
-
-    // Use the same indentation as the previous non-empty line
-    return previousIndentation;
 }
+
 
 
 
