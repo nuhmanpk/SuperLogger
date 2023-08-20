@@ -1,6 +1,6 @@
 # SuperLogger - Fun and Informative Print Statements for Python in Visual Studio Code
 
-<!-- ![SuperLogger Banner](https://your-image-url.com/banner.png)  -->
+![SuperLogger Banner](https://your-image-url.com/banner.png)
 
 SuperLogger is a Visual Studio Code extension for Python developers that adds fun and informative print statements to your code. It includes random emojis and jokes to make your coding experience more enjoyable while helping you debug and understand your code better.
 
@@ -13,7 +13,7 @@ SuperLogger is a Visual Studio Code extension for Python developers that adds fu
 
 ## Installation
 
-You can install SuperLogger directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=your-superlogger-extension).
+You can install SuperLogger directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger).
 
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
@@ -22,17 +22,13 @@ You can install SuperLogger directly from the [Visual Studio Code Marketplace](h
 
 ## Usage
 
+To add a SuperLogger print statement to your code:
+
 1. Open a Python file in Visual Studio Code.
 2. Select the text you want to add a print statement for.
 3. Use the keyboard shortcut (e.g., Ctrl+Alt+P) or the command palette to trigger SuperLogger.
-4. A print statement with a random emoji and joke will be added below your selection.
+4. SuperLogger will automatically insert a print statement below your selection with a random emoji and joke.
 
-## Configuration
-
-You can customize SuperLogger's behavior through Visual Studio Code's settings:
-
-- Open VS Code settings (`File > Preferences > Settings` or `Ctrl+,`).
-- Search for "SuperLogger" to find and adjust the extension's settings.
 
 ## Example
 
@@ -44,3 +40,17 @@ def calculate_sum(a, b):
     # print("🚀 ~ your-file.py:4 ~ result:", result)
     return result
 ```
+
+## Sponsorship
+If you find SuperLogger helpful and would like to support its development, consider sponsoring [nuhmanpk on GitHub](https://github.com/sponsors/nuhmanpk). Your sponsorship helps maintain and improve this extension for the entire community.
+
+## Known Issues
+If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/nuhmanpk/superlogger/issues) on [GitHub](https://github.com/nuhmanpk).
+
+## Contributing
+Contributions are welcome! Fork the repository, make your changes, and submit a pull request. Be sure to read our contribution guidelines for details.
+
+## License
+This project is licensed under the MIT License.
+
+Enjoy coding with SuperLogger! 🚀

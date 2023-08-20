@@ -1,9 +1,10 @@
 {
   "name": "superlogger",
-  "displayName": "SuperLogger",
-  "description": "",
+  "displayName": "Super Logger",
+  "description": "A VS Code extension for Python developers that adds fun and informative print statements with random emojis and jokes",
   "publisher": "nuhmanpk",
-  "version": "0.0.1",
+  "icon": "images/logo.png",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -29,7 +30,7 @@
         "key": "ctrl+alt+p",
         "mac": "cmd+alt+p",
         "when": "editorTextFocus",
-        "title": "Trigger My Custom Function"
+        "title": "Add Super Log"
       }
     ]
   },
