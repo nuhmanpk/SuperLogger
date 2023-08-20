@@ -1,14 +1,17 @@
 {
   "name": "superlogger",
   "displayName": "Super Logger",
-  "description": "A VS Code extension for Python developers that adds fun and informative print statements with random emojis and jokes",
+  "description": "A VS Code extension that enhances debugging in various programming languages by adding fun and informative print statements with random emojis and jokes",
   "publisher": "nuhmanpk",
   "icon": "images/logo.png",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.81.0"
   },
   "categories": [
+    "Debuggers",
+    "Testing",
+    "Programming Languages",
     "Other"
   ],
   "repository": {
