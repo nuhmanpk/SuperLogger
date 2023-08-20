@@ -1,8 +1,17 @@
 # SuperLogger - Fun and Informative Print Statements for Python in Visual Studio Code
 
-![SuperLogger Banner](https://your-image-url.com/banner.png)
+![SuperLogger Banner](https://raw.githubusercontent.com/nuhmanpk/SuperLogger/main/images/full-logo.png?token=GHSAT0AAAAAAB2DISRCH67IOVHUQJP6Y5CQZHB2MQQ)
 
 SuperLogger is a Visual Studio Code extension for Python developers that adds fun and informative print statements to your code. It includes random emojis and jokes to make your coding experience more enjoyable while helping you debug and understand your code better.
+
+## For Mac
+```
+cmd + opt + p
+```
+## For Windows
+```
+ctrl + alt + p
+```
 
 ## Features
 
@@ -51,6 +60,6 @@ If you encounter any issues or have suggestions for improvements, please [open a
 Contributions are welcome! Fork the repository, make your changes, and submit a pull request. Be sure to read our contribution guidelines for details.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/nuhmanpk/SuperLogger/blob/main/LICENSE).
 
 Enjoy coding with SuperLogger! 🚀
