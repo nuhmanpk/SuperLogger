@@ -2,6 +2,7 @@
   "name": "superlogger",
   "displayName": "SuperLogger",
   "description": "",
+  "publisher": "nuhmanpk",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.81.0"
@@ -9,6 +10,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuhmanpk/SuperLogger.git"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {

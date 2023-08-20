@@ -1,71 +1,46 @@
-# superlogger README
+# SuperLogger - Fun and Informative Print Statements for Python in Visual Studio Code
 
-This is the README for your extension "superlogger". After writing up a brief description, we recommend including the following sections.
+<!-- ![SuperLogger Banner](https://your-image-url.com/banner.png)  -->
+
+SuperLogger is a Visual Studio Code extension for Python developers that adds fun and informative print statements to your code. It includes random emojis and jokes to make your coding experience more enjoyable while helping you debug and understand your code better.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Easily add print statements with random emojis and jokes.
+- Enhance code readability and maintainability with informative print statements.
+- Customizable settings to adjust the behavior of SuperLogger.
+- Great for debugging and adding a touch of humor to your code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+You can install SuperLogger directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=your-superlogger-extension).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
+3. Search for "SuperLogger" in the Extensions view search box.
+4. Click the Install button to install it.
 
-## Requirements
+## Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open a Python file in Visual Studio Code.
+2. Select the text you want to add a print statement for.
+3. Use the keyboard shortcut (e.g., Ctrl+Alt+P) or the command palette to trigger SuperLogger.
+4. A print statement with a random emoji and joke will be added below your selection.
 
-## Extension Settings
+## Configuration
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+You can customize SuperLogger's behavior through Visual Studio Code's settings:
 
-For example:
+- Open VS Code settings (`File > Preferences > Settings` or `Ctrl+,`).
+- Search for "SuperLogger" to find and adjust the extension's settings.
 
-This extension contributes the following settings:
+## Example
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+```python
+def calculate_sum(a, b):
+    result = a + b
+    # Select the 'result' variable and trigger SuperLogger
+    # SuperLogger will add a print statement like this:
+    # print("🚀 ~ your-file.py:4 ~ result:", result)
+    return result
+```
