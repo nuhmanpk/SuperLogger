@@ -24,7 +24,7 @@ export function formatFile(filePath: string, lineNumber: number, selectedText: s
     
     if (fileExtension) {
         const filePathString = `${fileName}:${lineNumber}`;
-        const printStatement = fileExtensions(filePathString, fileExtension, selectedText);
+        const printStatement = fileExtensions(fileExtension, filePathString, selectedText);
         if(!printStatement){
             return null;
         }

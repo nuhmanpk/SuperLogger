@@ -1,4 +1,4 @@
-## SuperLogger - Your All-in-One Universal Logger for Visual Studio Code
+## SuperLogger - All-in-One Universal Logger for Visual Studio Code
 
 ![SuperLogger Banner](https://raw.githubusercontent.com/nuhmanpk/SuperLogger/main/images/full-logo.png?token=GHSAT0AAAAAAB2DISRCH67IOVHUQJP6Y5CQZHB2MQQ)
 
