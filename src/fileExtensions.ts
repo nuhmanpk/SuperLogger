@@ -55,19 +55,19 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
             printSyntax: `std::cout << ${defaultPrintStatement} << std::endl;`,
             commentSyntax: "//",
         },
-        'csharp': {
+        'c#': {
             language: 'C#',
             printSyntax: `Console.WriteLine(${defaultPrintStatement});`,
             commentSyntax: "//",
         },
-        'ruby': {
+        'rb': {
             language: 'Ruby',
-            printSyntax: `puts ${defaultPrintStatement});`,
+            printSyntax: `puts ${defaultPrintStatement};`,
             commentSyntax: "#",
         },
         'php': {
             language: 'PHP',
-            printSyntax: `echo ${defaultPrintStatement});`,
+            printSyntax: `echo ${defaultPrintStatement};`,
             commentSyntax: "//",
         },
         'go': {
@@ -92,7 +92,7 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
         },
         'perl': {
             language: 'Perl',
-            printSyntax: `print ${defaultPrintStatement});`,
+            printSyntax: `print ${defaultPrintStatement};`,
             commentSyntax: "#",
         },
         'r': {
@@ -122,7 +122,7 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
         },
         'haskell': {
             language: 'Haskell',
-            printSyntax: `putStrLn ${defaultPrintStatement})`,
+            printSyntax: `putStrLn ${defaultPrintStatement}`,
             commentSyntax: "--",
         },
         'racket': {
@@ -157,7 +157,7 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
         },
         'vhdl': {
             language: 'VHDL',
-            printSyntax: `report ${defaultPrintStatement})`,
+            printSyntax: `report ${defaultPrintStatement}`,
             commentSyntax: "--",
         },
         'verilog': {
