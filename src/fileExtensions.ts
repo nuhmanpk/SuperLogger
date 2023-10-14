@@ -67,7 +67,7 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
         },
         'php': {
             language: 'PHP',
-            printSyntax: `echo ${defaultPrintStatement};`,
+            printSyntax: `echo (${defaultPrintStatement});`,
             commentSyntax: "//",
         },
         'go': {
