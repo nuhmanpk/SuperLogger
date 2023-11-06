@@ -22,7 +22,7 @@ and many more!
 Whether you're working on a Python script or a Java application, SuperLogger adds a touch of humor and clarity to your code, making it easier to identify issues and understand your program's flow."
 
 ## Multiple Language, single Tool !!!
-![Video](https://raw.githubusercontent.com/nuhmanpk/SuperLogger/main/assets/Untitled%20video%20-%20Made%20with%20Clipchamp%20(4).gif)
+![Video](https://github.com/nuhmanpk/SuperLogger/blob/459eac60676908c3d15f328e9e74b970230bab24/images/demo-superlogger.gif)
 
 
 ## For Mac
