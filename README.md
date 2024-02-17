@@ -23,7 +23,7 @@ SuperLogger is a versatile Visual Studio Code extension that enhances your codin
 Whether you're working on a Python script or a Java application, SuperLogger adds a touch of humor and clarity to your code, making it easier to identify issues and understand your program's flow."
 
 ## Multiple Language, single Tool !!!
-![Video](https://github.com/nuhmanpk/SuperLogger/blob/459eac60676908c3d15f328e9e74b970230bab24/images/demo-superlogger.gif)
+![Video](https://github.com/nuhmanpk/SuperLogger/blob/main/images/demo-superlogger-min.gif?raw=true)
 
 
 ## For Mac
