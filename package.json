@@ -4,7 +4,7 @@
   "description": "A VS Code extension that enhances debugging in various programming languages by adding fun and informative print statements with random emojis and jokes",
   "publisher": "nuhmanpk",
   "icon": "images/logo.png",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -27,7 +27,7 @@
         "title": "Add SuperLogger"
       },
       {
-        "command": "superlogger.commentLogs",
+        "command": "superlogger.nodeLogger",
         "title": "Comment all Logs"
       }
     ],
@@ -40,11 +40,11 @@
         "title": "Add Super Log"
       },
       {
-        "command": "superlogger.commentLogs",
-        "key": "ctrl+alt+c",
-        "mac": "cmd+alt+c",
+        "command": "superlogger.nodeLogger",
+        "key": "ctrl+alt+k",
+        "mac": "cmd+alt+k",
         "when": "editorTextFocus",
-        "title": "Comment all Logs"
+        "title": "For Node"
       }
     ]
   },

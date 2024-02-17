@@ -4,21 +4,22 @@
 
 SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements with random emojis and jokes, making debugging a delightful and effective process.
 
-Supported Languages:
+## Supported Languages:
 
-Python
-JavaScript
-TypeScript
-Java
-C++
-C#
-Ruby
-PHP
-Swift
-Go
-Rust
-Kotlin
-and many more!
+1. Python
+1. JavaScript
+1. TypeScript
+1. Java
+1. C++
+1. C#
+1. Ruby
+1. PHP
+1. Swift
+1. Go
+1. Rust
+1. Kotlin
+1. Jupter Notebooks
+1. and many more!
 Whether you're working on a Python script or a Java application, SuperLogger adds a touch of humor and clarity to your code, making it easier to identify issues and understand your program's flow."
 
 ## Multiple Language, single Tool !!!
@@ -33,6 +34,9 @@ cmd + opt + p
 ```
 ctrl + alt + p
 ```
+
+*NOTE* : For node ('JavaScript', 'TypeScript', 'TypeScript (JSX)',
+        'JavaScript (JSX)', 'Vue.js', 'Svelte') , `use cmd + opt + k` or `ctrl + alt + k` for simple console.
 
 ## Features
 

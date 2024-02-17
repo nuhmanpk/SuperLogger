@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { addSuperLogger, commentLogger } from './superLogger';
+import { addSuperLogger, nodeLogger } from './superLogger';
 
 
 // This method is called when your extension is activated
@@ -17,14 +17,14 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	let commentLoggerDisposable = vscode.commands.registerCommand('superlogger.commentLogs', () => {
+	let nodeLoggerDisposable = vscode.commands.registerCommand('superlogger.nodeLogger', () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
-			commentLogger(editor);
+			nodeLogger(editor);
 		}
 	});
 
-	context.subscriptions.push(addSuperLoggerDisposable, commentLoggerDisposable);
+	context.subscriptions.push(addSuperLoggerDisposable, nodeLoggerDisposable);
 }
 
 // This method is called when your extension is deactivated

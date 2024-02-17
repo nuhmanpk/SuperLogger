@@ -40,6 +40,11 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
             printSyntax: `print(${defaultPrintStatement})`,
             commentSyntax: "#",
         },
+        'ipynb': {
+            language: 'Jupyter Notebbok',
+            printSyntax: `print(${defaultPrintStatement})`,
+            commentSyntax: "#",
+        },
         'java': {
             language: 'Java',
             printSyntax: `System.out.println(${defaultPrintStatement});`,
@@ -55,6 +60,7 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
             printSyntax: `std::cout << ${defaultPrintStatement} << std::endl;`,
             commentSyntax: "//",
         },
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         'c#': {
             language: 'C#',
             printSyntax: `Console.WriteLine(${defaultPrintStatement});`,
