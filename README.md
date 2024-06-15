@@ -4,6 +4,9 @@
 
 SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements with random emojis and jokes, making debugging a delightful and effective process.
 
+  [![Version](https://img.shields.io/visual-studio-marketplace/v/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
+  [![Downloads](https://img.shields.io/visual-studio-marketplace/d/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
+
 ## Supported Languages:
 
 1. Python
