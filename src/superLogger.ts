@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { formatFile, calculateIndentation, getRandomEmoji } from './utlis';
+import { formatFile, calculateIndentation, getRandomEmoji } from './utils';
 import { fileExtensions } from './fileExtensions';
 
 
