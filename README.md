@@ -91,4 +91,4 @@ Contributions are welcome! Fork the repository, make your changes, and submit a 
 ## License
 This project is licensed under the [MIT License](https://github.com/nuhmanpk/SuperLogger/blob/main/LICENSE).
 
-Enjoy coding with SuperLogger! 🚀
+Made with ❤️ by [Nuhman](https://github.com/nuhmanpk). Happy Coding 🚀
