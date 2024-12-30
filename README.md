@@ -1,6 +1,6 @@
 ## SuperLogger - All-in-One Universal Logger for Visual Studio Code
 
-![SuperLogger Banner](https://raw.githubusercontent.com/nuhmanpk/SuperLogger/main/images/full-logo.png?token=GHSAT0AAAAAAB2DISRCH67IOVHUQJP6Y5CQZHB2MQQ)
+![SuperLogger Banner](https://github.com/nuhmanpk/SuperLogger/blob/main/images/full-logo.png?raw=true)
 
 SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements with random emojis and jokes, making debugging a delightful and effective process.
 
