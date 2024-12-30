@@ -1,147 +1,139 @@
-import { getRandomEmoji, getRandomJoke } from './utils';
+import { getRandomEmoji } from './utils';
 
 export const fileExtensions = (fileExtension: string, filePath?: string, selectedText?: string) => {
-    const defaultPrintStatement = `${getRandomEmoji()} ~ ${filePath || 'Unknown file'} -> ${selectedText || getRandomJoke()}`;
-    
-    const dartPrintStatement = selectedText
-        ? selectedText.includes(".")
-            ? `${getRandomEmoji()} ${filePath || 'Unknown file'} -> ${selectedText}: \$\{${selectedText}\}`
-            : `${getRandomEmoji()} ${filePath || 'Unknown file'} -> ${selectedText}: \$${selectedText}`
-        : `${getRandomEmoji()} ${filePath || 'Unknown file'}`;
+    const sanitizedFilePath = filePath;
 
-    const language: Record<string, { language: string; printSyntax: string; commentSyntax: string }> = {
-        'js': {
+    // const sanitizedSelectedText = selectedText || getRandomJoke();
+    // const defaultPrintStatement = `${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${sanitizedSelectedText}`;
+
+    const language: Record<string, { language: string; printSyntax: string; commentSyntax: string; }> = {
+        js: {
             language: 'JavaScript',
-            printSyntax: `console.log('${defaultPrintStatement}');`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `console.log('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText});`
+                : `console.log('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'ts': {
+        ts: {
             language: 'TypeScript',
-            printSyntax: `console.log('${defaultPrintStatement}');`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `console.log('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText});`
+                : `console.log('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'tsx': {
-            language: 'TypeScript (JSX)',
-            printSyntax: `console.log('${defaultPrintStatement}');`,
-            commentSyntax: "//",
-        },
-        'jsx': {
-            language: 'JavaScript (JSX)',
-            printSyntax: `console.log('${defaultPrintStatement}');`,
-            commentSyntax: "//",
-        },
-        'vue': {
-            language: 'Vue.js',
-            printSyntax: `console.log("${defaultPrintStatement}");`,
-            commentSyntax: "//",
-        },
-        'svelte': {
-            language: 'Svelte',
-            printSyntax: `console.log("${defaultPrintStatement}");`,
-            commentSyntax: "//",
-        },
-        'py': {
+        py: {
             language: 'Python',
-            printSyntax: `print("${defaultPrintStatement}")`,
-            commentSyntax: "#",
+            printSyntax: selectedText
+                ? `print('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText})`
+                : `print('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '#',
         },
-        'ipynb': {
-            language: 'Jupyter Notebook',
-            printSyntax: `print("${defaultPrintStatement}")`,
-            commentSyntax: "#",
+        ipynb: {
+            language: 'Python',
+            printSyntax: selectedText
+                ? `print('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText})`
+                : `print('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '#',
         },
-        'java': {
+        java: {
             language: 'Java',
-            printSyntax: `System.out.println("${defaultPrintStatement}");`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `System.out.println('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ' + ${selectedText});`
+                : `System.out.println('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'c': {
+        c: {
             language: 'C',
-            printSyntax: `printf("${defaultPrintStatement}\\n");`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `printf('${getRandomEmoji()} ~ %s -> %s: %s\\n', '${sanitizedFilePath}', '${selectedText}', ${selectedText});`
+                : `printf('${getRandomEmoji()} ~ %s\\n', '${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'cpp': {
+        cpp: {
             language: 'C++',
-            printSyntax: `std::cout << "${defaultPrintStatement}" << std::endl;`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `std::cout << '${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ' << ${selectedText} << std::endl;`
+                : `std::cout << '${getRandomEmoji()} ~ ${sanitizedFilePath}' << std::endl;`,
+            commentSyntax: '//',
         },
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        'c#': {
-            language: 'C#',
-            printSyntax: `Console.WriteLine("${defaultPrintStatement}");`,
-            commentSyntax: "//",
-        },
-        'rb': {
+        rb: {
             language: 'Ruby',
-            printSyntax: `puts "${defaultPrintStatement}"`,
-            commentSyntax: "#",
+            printSyntax: selectedText
+                ? `puts '${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: #{${selectedText}}'`
+                : `puts '${getRandomEmoji()} ~ ${sanitizedFilePath}'`,
+            commentSyntax: '#',
         },
-        'php': {
+        php: {
             language: 'PHP',
-            printSyntax: `echo "${getRandomEmoji()} ~ ${filePath} -> \$${selectedText}: " . (${selectedText ? `print_r(${selectedText}, true)` : `"${getRandomJoke()}"`});`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `echo '${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ' . ${selectedText} . '\\n';`
+                : `echo '${getRandomEmoji()} ~ ${sanitizedFilePath}\\n';`,
+            commentSyntax: '//',
         },
-        'go': {
+        go: {
             language: 'Go',
-            printSyntax: `fmt.Println("${defaultPrintStatement}")`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `fmt.Println('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText})`
+                : `fmt.Println('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '//',
         },
-        'swift': {
+        swift: {
             language: 'Swift',
-            printSyntax: `print("${defaultPrintStatement}")`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `print('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: \\(selectedText)')`
+                : `print('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '//',
         },
-        'kotlin': {
+        kotlin: {
             language: 'Kotlin',
-            printSyntax: `println("${defaultPrintStatement}")`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `println('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: $${selectedText}')`
+                : `println('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '//',
         },
-        'rust': {
+        rust: {
             language: 'Rust',
-            printSyntax: `println!("${defaultPrintStatement}");`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `println!('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: {}', ${selectedText});`
+                : `println!('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'perl': {
-            language: 'Perl',
-            printSyntax: `print "${defaultPrintStatement}";`,
-            commentSyntax: "#",
-        },
-        'r': {
-            language: 'R',
-            printSyntax: `cat("${defaultPrintStatement}\\n")`,
-            commentSyntax: "#",
-        },
-        'dart': {
+        dart: {
             language: 'Dart',
-            printSyntax: `print("${dartPrintStatement}");`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `print('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: \${${selectedText}}');`
+                : `print('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+            commentSyntax: '//',
         },
-        'scala': {
+        scala: {
             language: 'Scala',
-            printSyntax: `println("${defaultPrintStatement}")`,
-            commentSyntax: "//",
+            printSyntax: selectedText
+                ? `println('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ' + ${selectedText})`
+                : `println('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '//',
         },
-        'lua': {
+        lua: {
             language: 'Lua',
-            printSyntax: `print("${defaultPrintStatement}")`,
-            commentSyntax: "--",
+            printSyntax: selectedText
+                ? `print('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ' .. ${selectedText})`
+                : `print('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '--',
         },
-        'elixir': {
+        elixir: {
             language: 'Elixir',
-            printSyntax: `IO.puts("${defaultPrintStatement}")`,
-            commentSyntax: "#",
+            printSyntax: selectedText
+                ? `IO.puts('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: \#{${selectedText}}')`
+                : `IO.puts('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '#',
         },
-        'julia': {
+        julia: {
             language: 'Julia',
-            printSyntax: `println("${defaultPrintStatement}")`,
-            commentSyntax: "#",
+            printSyntax: selectedText
+                ? `println('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: ', ${selectedText})`
+                : `println('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
+            commentSyntax: '#',
         },
     };
-
-    if (!language[fileExtension]) {
-        console.error(`Unsupported file extension: ${fileExtension}`);
-        return null;
-    }
 
     return language[fileExtension];
 };
