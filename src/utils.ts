@@ -37,31 +37,39 @@ export function formatFile(filePath: string, lineNumber: number, selectedText: s
 
 export function calculateIndentation(editor: vscode.TextEditor, lineNumber: number): string {
     try {
-        if (lineNumber < 0) {
+        if (lineNumber <= 0) {
             // If it's the first line or a negative line number, use no indentation
             return '';
         }
-    
+
         const document = editor.document;
-        const lineText = document.lineAt(lineNumber).text;
-    
-        // Find the indentation of the line below
-        const lineBelowText = document.lineAt(lineNumber - 1).text;
-        const belowIndentation = lineBelowText.match(/^\s*/)?.[0] || '';
-    
-        // If the current line ends with a colon or an opening brace, add extra indentation
-        if (lineText.trim().endsWith(':') || lineText.trim().endsWith('{')) {
-            return belowIndentation + '    '; // Adjust the number of spaces as needed
+
+        // Get the text of the current line
+        const currentLineText = document.lineAt(lineNumber).text;
+
+        // Get the text of the previous line
+        const previousLineText = document.lineAt(lineNumber - 1).text;
+
+        // Find the indentation of the previous line
+        const previousLineIndentation = previousLineText.match(/^\s*/)?.[0] || '';
+
+        // Determine if the previous line ends with a character that suggests nesting
+        const requiresExtraIndentation = previousLineText.trim().endsWith(':') || previousLineText.trim().endsWith('{');
+
+        if (requiresExtraIndentation) {
+            // Add extra indentation if nesting is suggested
+            return previousLineIndentation + '    '; // Adjust the number of spaces or use a tab if needed
         }
-    
-        // Use the same indentation as the line below
-        return belowIndentation;
+
+        // If the current line is blank, use the same indentation as the previous line
+        if (!currentLineText.trim()) {
+            return previousLineIndentation;
+        }
+
+        // Default: Use the same indentation as the previous line
+        return previousLineIndentation;
     } catch (error) {
-        console.log(error);
-        return '\n';
+        console.error('Error calculating indentation:', error);
+        return ''; // Fallback to no indentation
     }
 }
-
-
-
-
