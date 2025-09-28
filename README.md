@@ -19,7 +19,6 @@ SuperLogger is a versatile Visual Studio Code extension that enhances your codin
 1. PHP
 1. Swift
 1. Go
-1. Rust
 1. Kotlin
 1. Jupter Notebooks
 1. and many more!

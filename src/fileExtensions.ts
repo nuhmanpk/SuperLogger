@@ -91,11 +91,11 @@ export const fileExtensions = (fileExtension: string, filePath?: string, selecte
                 : `println('${getRandomEmoji()} ~ ${sanitizedFilePath}')`,
             commentSyntax: '//',
         },
-        rust: {
+        rs: {
             language: 'Rust',
             printSyntax: selectedText
-                ? `println!('${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: {}', ${selectedText});`
-                : `println!('${getRandomEmoji()} ~ ${sanitizedFilePath}');`,
+                ? `println!(\"${getRandomEmoji()} ~ ${sanitizedFilePath} -> ${selectedText}: {{}}\", ${selectedText});`
+                : `println!(\"${getRandomEmoji()} ~ ${sanitizedFilePath}\");`,
             commentSyntax: '//',
         },
         dart: {

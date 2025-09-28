@@ -14,7 +14,7 @@ export const addSuperLogger = (editor: vscode.TextEditor | undefined) => {
     const lineNumber = selection.active.line + 1;
     const printStatement = formatFile(document.fileName, lineNumber, selectedText);
     if (!printStatement) {
-        vscode.window.showErrorMessage('Couldn\'t find any logging for this extenstion.');
+    vscode.window.showErrorMessage('Couldn\'t find any logging for this extension.');
         return;
     }
 
