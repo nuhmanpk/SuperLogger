@@ -2,10 +2,21 @@
 
 ![SuperLogger Banner](https://github.com/nuhmanpk/SuperLogger/blob/main/images/full-logo.png?raw=true)
 
-SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements with random emojis and jokes, making debugging a delightful and effective process.
+SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements  making debugging a delightful and effective process.
 
   [![Version](https://img.shields.io/visual-studio-marketplace/v/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
+  [![Rating](https://img.shields.io/visual-studio-marketplace/r/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
+  [![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-support-brightgreen?logo=github)](https://github.com/sponsors/nuhmanpk)
+  [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-yellow?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/nuhmanpk)
+  [![TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-blue?logo=typescript)](https://www.typescriptlang.org/)
+  [![VS Code API](https://img.shields.io/badge/VS%20Code-Extension%20API-blue?logo=visualstudiocode)](https://code.visualstudio.com/api)
+  [![Code Style](https://img.shields.io/badge/code%20style-standard-blue)](https://standardjs.com/)
+  [![Open Source](https://img.shields.io/badge/Open%20Source-❤️-brightgreen)](https://github.com/nuhmanpk)
   [![Downloads](https://img.shields.io/visual-studio-marketplace/d/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
+
+
+
+
 
 ## Supported Languages:
 
