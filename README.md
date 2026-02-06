@@ -4,6 +4,8 @@
 
 SuperLogger is a versatile Visual Studio Code extension that enhances your coding experience across various programming languages. It provides entertaining and informative print statements  making debugging a delightful and effective process.
 
+> 💡 Think of SuperLogger as **Turbo Console Log for every language**—one shortcut, consistent logs everywhere.
+
   [![Version](https://img.shields.io/visual-studio-marketplace/v/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
   [![Rating](https://img.shields.io/visual-studio-marketplace/r/nuhmanpk.superlogger.svg)](https://marketplace.visualstudio.com/items?itemName=nuhmanpk.superlogger)
   [![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-support-brightgreen?logo=github)](https://github.com/sponsors/nuhmanpk)
@@ -54,10 +56,20 @@ ctrl + alt + p
 
 ## Features
 
+- Turbo console energy for 20+ languages—one command generates idiomatic logs for each runtime.
 - Easily add print statements with random emojis and jokes.
 - Enhance code readability and maintainability with informative print statements.
 - Customizable settings to adjust the behavior of SuperLogger.
 - Great for debugging and adding a touch of humor to your code.
+
+## Configuration
+
+Tune SuperLogger under **Settings → Extensions → SuperLogger**:
+
+- `superLogger.showWelcomeMessage` – toggle the activation toast if you prefer a silent startup.
+- `superLogger.includeEmoji` – disable emojis for stricter consoles.
+- `superLogger.includeFileMetadata` – remove file:line breadcrumbs when you just want clean text.
+- `superLogger.insertJokeComment` – drop a motivational one-liner above every generated log.
 
 ## Installation
 
