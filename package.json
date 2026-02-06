@@ -1,13 +1,21 @@
 {
   "name": "superlogger",
   "displayName": "Super Logger",
-  "description": "A VS Code extension that enhances debugging in various programming languages by adding fun and informative print statements with random emojis and jokes",
+  "description": "A VS Code extension that enhances debugging in various programming languages by adding print statements with random emojis making the debugging easy.",
   "publisher": "nuhmanpk",
   "icon": "images/logo.png",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.81.0"
   },
+  "keywords": [
+    "logging",
+    "debugging",
+    "console",
+    "turbo console",
+    "multi language",
+    "observability"
+  ],
   "categories": [
     "Debuggers",
     "Testing",
@@ -18,7 +26,11 @@
     "type": "git",
     "url": "https://github.com/nuhmanpk/SuperLogger.git"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:superlogger.addSuperLogger",
+    "onCommand:superlogger.nodeLogger",
+    "onCommand:superlogger.openWelcome"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -29,8 +41,37 @@
       {
         "command": "superlogger.nodeLogger",
         "title": "Comment all Logs"
+      },
+      {
+        "command": "superlogger.openWelcome",
+        "title": "SuperLogger: Show Welcome Hub"
       }
     ],
+    "configuration": {
+      "title": "SuperLogger",
+      "properties": {
+        "superLogger.showWelcomeMessage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a welcome toast the first time SuperLogger activates in a session."
+        },
+        "superLogger.includeEmoji": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prefix generated logs with random emojis."
+        },
+        "superLogger.includeFileMetadata": {
+          "type": "boolean",
+          "default": true,
+          "description": "Embed the current file name and line number in generated logs."
+        },
+        "superLogger.insertJokeComment": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add a comment above each log with a random upbeat message."
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "superlogger.addSuperLogger",

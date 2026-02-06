@@ -1,7 +1,15 @@
 import * as vscode from 'vscode';
-import { formatFile, calculateIndentation, getRandomEmoji } from './utils';
-import { fileExtensions } from './fileExtensions';
+import { formatFile, calculateIndentation, getSelectionTarget, LoggerPreferences } from './utils';
 
+
+const getLoggerPreferences = (): LoggerPreferences => {
+    const config = vscode.workspace.getConfiguration('superLogger');
+    return {
+        includeEmoji: config.get<boolean>('includeEmoji', true),
+        includeFileMetadata: config.get<boolean>('includeFileMetadata', true),
+        insertJokeComment: config.get<boolean>('insertJokeComment', false),
+    };
+};
 
 export const addSuperLogger = (editor: vscode.TextEditor | undefined) => {
     if (!editor) {
@@ -10,25 +18,33 @@ export const addSuperLogger = (editor: vscode.TextEditor | undefined) => {
     }
 
     const { document, selection } = editor;
-    const selectedText = document.getText(selection);
+    const selectedText = getSelectionTarget(document, selection);
     const lineNumber = selection.active.line + 1;
-    const printStatement = formatFile(document.fileName, lineNumber, selectedText);
+    const preferences = getLoggerPreferences();
+    const printStatement = formatFile(document.fileName, lineNumber, selectedText, preferences);
     if (!printStatement) {
-    vscode.window.showErrorMessage('Couldn\'t find any logging for this extension.');
+        vscode.window.showErrorMessage('Couldn\'t find any logging for this extension.');
         return;
     }
 
-
     // Determine where to insert the print statement
     const lineToInsert = selection.isEmpty ? selection.active.line : selection.end.line;
-
     const calculatedIndentation = calculateIndentation(editor, lineNumber);
-    const insertText = `${calculatedIndentation}${printStatement.printSyntax}\n`;
+
+    const linesToInsert: string[] = [];
+    if (printStatement.jokeComment) {
+        linesToInsert.push(`${calculatedIndentation}${printStatement.commentSyntax} ${printStatement.jokeComment}`);
+    }
+    linesToInsert.push(`${calculatedIndentation}${printStatement.printSyntax}`);
+
+    const insertText = `${linesToInsert.join('\n')}\n`;
 
     editor.edit((editBuilder: vscode.TextEditorEdit) => {
         editBuilder.insert(new vscode.Position(lineToInsert + 1, 0), insertText);
     });
 };
+
+const nodeExtensions = new Set(['js', 'ts', 'tsx', 'jsx', 'mjs', 'cjs', 'vue', 'svelte']);
 
 export const nodeLogger = (editor: vscode.TextEditor | undefined) => {
     if (!editor) {
@@ -37,31 +53,33 @@ export const nodeLogger = (editor: vscode.TextEditor | undefined) => {
     }
 
     const { document, selection } = editor;
-    const selectedText = document.getText(selection);
     const lineNumber = selection.active.line + 1;
     const filename = document.fileName;
-    const parts = filename.split(/[\\/]/);
-    const fileName = parts[parts.length - 1];
-    const fileExtension = fileName.split('.').pop();
-    let fileProps: any;
-    let nodeExtentions = ['JavaScript', 'TypeScript', 'TypeScript (JSX)',
-        'JavaScript (JSX)', 'Vue.js', 'Svelte'];
-    if (fileExtension) {
-        fileProps = fileExtensions(fileExtension);
-        if (nodeExtentions.includes(fileProps.language)) {
-            const lineToInsert = selection.isEmpty ? selection.active.line : selection.end.line;
+    const fileExtension = filename.split('.').pop()?.toLowerCase();
 
-            const calculatedIndentation = calculateIndentation(editor, lineNumber);
-            const insertText = `${calculatedIndentation}console.log('${getRandomEmoji()}:', ${selectedText});\n`;
-
-            editor.edit((editBuilder: vscode.TextEditorEdit) => {
-                editBuilder.insert(new vscode.Position(lineToInsert + 1, 0), insertText);
-            });
-        } else {
-            vscode.window.showErrorMessage('This is only for Node.\n Try cmd + opt + p or ctrl + alt + p');
-        }
-    } else {
-        vscode.window.showErrorMessage('Unable to determine file extension.');
+    if (!fileExtension || !nodeExtensions.has(fileExtension)) {
+        vscode.window.showErrorMessage('This shortcut only supports Node-friendly files (JS/TS/Vue/Svelte).');
+        return;
     }
 
+    const selectedText = getSelectionTarget(document, selection);
+    if (!selectedText) {
+        vscode.window.showErrorMessage('Select a variable or expression to log.');
+        return;
+    }
+
+    const preferences = { ...getLoggerPreferences(), includeFileMetadata: false };
+    const printStatement = formatFile(document.fileName, lineNumber, selectedText, preferences);
+    if (!printStatement) {
+        vscode.window.showErrorMessage('Unable to build a console log for this file.');
+        return;
+    }
+
+    const lineToInsert = selection.isEmpty ? selection.active.line : selection.end.line;
+    const indentation = calculateIndentation(editor, lineNumber);
+    const insertText = `${indentation}${printStatement.printSyntax}\n`;
+
+    editor.edit((editBuilder: vscode.TextEditorEdit) => {
+        editBuilder.insert(new vscode.Position(lineToInsert + 1, 0), insertText);
+    });
 };
